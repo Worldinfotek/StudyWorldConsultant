@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.loginBackground,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 8.w),
@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
               Center(
                 child: Image.asset(
-                  'assets/splash_logo/logo.png',
+                  'assets/splash_logo/logo.jpeg',
                   width: 50.w,
                   height: 20.h,
                   fit: BoxFit.contain,
@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(
                   fontSize: 24.sp,
                   fontWeight: FontWeight.w700,
-                  color: AppColors.textPrimary,
+                  color: AppColors.loginLabelText,
                 ),
               ),
               SizedBox(height: 1.h),
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 AppConstant.loginSubtitle,
                 style: TextStyle(
                   fontSize: 16.sp,
-                  color: AppColors.textSecondary,
+                  color: AppColors.loginHintText,
                 ),
               ),
 
@@ -74,25 +74,25 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.textPrimary,
+                  color: AppColors.loginLabelText,
                 ),
               ),
               SizedBox(height: 1.h),
               TextField(
                 controller: _usernameController,
-                style: TextStyle(fontSize: 15.sp, color: AppColors.textPrimary),
+                style: TextStyle(fontSize: 15.sp, color: AppColors.loginLabelText),
                 decoration: InputDecoration(
                   hintText: AppConstant.usernameHint,
                   hintStyle: TextStyle(
                     fontSize: 13.sp,
-                    color: AppColors.textSecondary.withOpacity(0.6),
+                    color: AppColors.loginHintText,
                   ),
                   prefixIcon: Icon(
                     Icons.person_outline,
-                    color: AppColors.primaryMaroon,
+                    color: AppColors.loginFieldIcon,
                   ),
                   filled: true,
-                  fillColor: AppColors.backgroundLight,
+                  fillColor: AppColors.loginFieldFill,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,
@@ -112,30 +112,30 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.textPrimary,
+                  color: AppColors.loginLabelText,
                 ),
               ),
               SizedBox(height: 1.h),
               TextField(
                 controller: _passwordController,
                 obscureText: _obscurePassword,
-                style: TextStyle(fontSize: 14.sp, color: AppColors.textPrimary),
+                style: TextStyle(fontSize: 14.sp, color: AppColors.loginLabelText),
                 decoration: InputDecoration(
                   hintText: AppConstant.passwordHint,
                   hintStyle: TextStyle(
                     fontSize: 14.sp,
-                    color: AppColors.textSecondary.withOpacity(0.6),
+                    color: AppColors.loginHintText,
                   ),
                   prefixIcon: Icon(
                     Icons.lock_outline,
-                    color: AppColors.primaryMaroon,
+                    color: AppColors.loginFieldIcon,
                   ),
                   suffixIcon: IconButton(
                     icon: Icon(
                       _obscurePassword
                           ? Icons.visibility_off_outlined
                           : Icons.visibility_outlined,
-                      color: AppColors.textSecondary,
+                      color: AppColors.loginHintText,
                     ),
                     onPressed: () {
                       setState(() {
@@ -144,7 +144,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ),
                   filled: true,
-                  fillColor: AppColors.backgroundLight,
+                  fillColor: AppColors.loginFieldFill,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                     borderSide: BorderSide.none,
@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primaryMaroon,
+                    backgroundColor: AppColors.loginButton,
                     padding: EdgeInsets.symmetric(vertical: 1.8.h),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -184,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Text(
                     AppConstant.loginButtonText,
                     style: TextStyle(
-                      color: Colors.white,
+                      color: AppColors.loginButtonText,
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w600,
                     ),

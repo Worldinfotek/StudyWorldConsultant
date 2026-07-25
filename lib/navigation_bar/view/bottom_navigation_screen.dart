@@ -29,7 +29,7 @@ class BottomNavigationScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => BottomNavigationBloc(),
       child: Scaffold(
-        backgroundColor: AppColors.background,
+        backgroundColor: AppColors.onboardingBackground,
         extendBody: true,
         body: BlocBuilder<BottomNavigationBloc, BottomNavigationState>(
           builder: (context, state) {
@@ -42,8 +42,8 @@ class BottomNavigationScreen extends StatelessWidget {
                 return CurvedNavigationBar(
                   index: state.currentIndex,
                   backgroundColor: Colors.transparent,
-                  color: AppColors.primaryMaroon,
-                  buttonBackgroundColor: AppColors.primaryMaroon,
+                  color: AppColors.bottomNavBackground,
+                  buttonBackgroundColor: AppColors.bottomNavBackground,
                   animationDuration: const Duration(milliseconds: 350),
                   animationCurve: Curves.easeOutCubic,
                   items: _icons
@@ -75,7 +75,7 @@ class _PlaceholderScreen extends StatelessWidget {
         style: const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
-          color: AppColors.textPrimary,
+          color: AppColors.onboardingTitle,
         ),
       ),
     );

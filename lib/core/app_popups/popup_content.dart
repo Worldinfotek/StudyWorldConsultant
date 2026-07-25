@@ -95,11 +95,11 @@ class _PopupContentState extends State<PopupContent>
               margin: EdgeInsets.symmetric(horizontal: 8.w),
               padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.h),
               decoration: BoxDecoration(
-                color: AppColors.backgroundLight,
+                color: AppColors.popupBackground,
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.15),
+                    color: AppColors.popupShadow,
                     blurRadius: 20,
                     offset: const Offset(0, 8),
                   ),
@@ -128,7 +128,7 @@ class _PopupContentState extends State<PopupContent>
                     style: TextStyle(
                       fontSize: 17.sp,
                       fontWeight: FontWeight.w700,
-                      color: AppColors.textPrimary,
+                      color: AppColors.popupTitleText,
                     ),
                   ),
                   SizedBox(height: 1.h),
@@ -137,7 +137,7 @@ class _PopupContentState extends State<PopupContent>
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 13.sp,
-                      color: AppColors.textSecondary,
+                      color: AppColors.popupMessageText,
                       height: 1.5,
                     ),
                   ),

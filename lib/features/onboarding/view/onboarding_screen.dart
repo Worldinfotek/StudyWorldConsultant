@@ -52,14 +52,14 @@ class _OnboardingViewState extends State<_OnboardingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: AppColors.onboardingBackground,
       body: Stack(
         children: [
           // Wind-like floating particles across the whole onboarding screen.
           const Positioned.fill(
             child: FloatingParticles(
               particleCount: 35,
-              particleColor: AppColors.primaryMaroon,
+              particleColor: AppColors.onboardingParticle,
             ),
           ),
           SafeArea(
@@ -80,7 +80,7 @@ class _OnboardingViewState extends State<_OnboardingView> {
                           child: Text(
                             AppConstant.onboardingSkipText,
                             style: TextStyle(
-                              color: AppColors.textSecondary,
+                              color: AppColors.onboardingSkipText,
                               fontSize: 13.sp,
                             ),
                           ),
@@ -112,8 +112,8 @@ class _OnboardingViewState extends State<_OnboardingView> {
                           height: 1.h,
                           decoration: BoxDecoration(
                             color: state.currentPage == index
-                                ? AppColors.primaryMaroon
-                                : AppColors.primaryMaroon.withOpacity(0.25),
+                                ? AppColors.onboardingDotActive
+                                : AppColors.onboardingDotInactive.withOpacity(0.25),
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
@@ -126,7 +126,7 @@ class _OnboardingViewState extends State<_OnboardingView> {
                         width: double.infinity,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.primaryMaroon,
+                            backgroundColor: AppColors.onboardingButton,
                             padding: EdgeInsets.symmetric(vertical: 1.8.h),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
@@ -139,7 +139,7 @@ class _OnboardingViewState extends State<_OnboardingView> {
                                 ? AppConstant.onboardingGetStartedText
                                 : AppConstant.onboardingNextText,
                             style: TextStyle(
-                              color: Colors.white,
+                              color: AppColors.onboardingButtonText,
                               fontSize: 15.sp,
                               fontWeight: FontWeight.w600,
                             ),

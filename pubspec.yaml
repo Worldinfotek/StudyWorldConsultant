@@ -49,7 +49,7 @@ dev_dependencies:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/splash_logo/logo.png"
+  image_path: "assets/splash_logo/logo.jpeg"
   min_sdk_android: 21
   remove_alpha_ios: true
 

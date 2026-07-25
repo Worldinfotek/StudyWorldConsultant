@@ -96,7 +96,7 @@ class _SplashViewState extends State<_SplashView>
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [AppColors.background, AppColors.backgroundLight],
+            colors: [AppColors.splashBackground, AppColors.splashBackground],
           ),
         ),
         child: Stack(
@@ -108,7 +108,7 @@ class _SplashViewState extends State<_SplashView>
             const Positioned.fill(
               child: FloatingParticles(
                 particleCount: 35,
-                particleColor: AppColors.particle,
+                particleColor: AppColors.splashParticle,
               ),
             ),
 
@@ -136,7 +136,7 @@ class _SplashViewState extends State<_SplashView>
                         textAlign: TextAlign.center,
                         AppConstant.splashText,
                         style: TextStyle(
-                          color: AppColors.textPrimary,
+                          color: AppColors.splashText,
                           fontSize: 24,
                           fontWeight: FontWeight.w300,
                           letterSpacing: 4,
@@ -163,7 +163,7 @@ class _DummyLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/splash_logo/logo.png',
+      'assets/splash_logo/logo.jpeg',
       width: 50.w,
       height: 20.h,
       fit: BoxFit.contain,

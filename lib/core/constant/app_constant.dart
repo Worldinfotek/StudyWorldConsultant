@@ -3,7 +3,7 @@ class AppConstant {
   ///====================================================
   /// Splash constant
   ///====================================================
-  static const String splashText = "One World Immigration Law Consultant";
+  static const String splashText = "Study World Consultant";
 
 
 
@@ -12,14 +12,14 @@ class AppConstant {
  /// onboarding constant
  ///====================================================
   // pages title
- static const String page1Title = "Expert Immigration Guidance";
- static const String page2Title = "Study, Work & Settle Abroad";
- static const String page3Title = "Trusted Legal Support";
+  static const String page1Title = "Expert Study Abroad Guidance";
+  static const String page2Title = "Study, Work & Settle Abroad";
+  static const String page3Title = "Trusted & Reliable Support";
 
  // pages description
-  static const String page1Description = "Get step-by-step legal support from experienced consultants for your visa, PR, and settlement journey.";
-  static const String page2Description = "Explore opportunities across top destinations with guidance tailored to your goals — study, work, or permanent residency.";
-  static const String page3Description = "From documentation to final approval, our licensed consultants ensure a smooth and transparent process at every step.";
+  static const String page1Description = "Get personalized step-by-step guidance from experienced consultants for your study abroad, visa, and settlement journey.";
+  static const String page2Description = "Explore the best universities and opportunities across top destinations with guidance tailored to your academic and career goals.";
+  static const String page3Description = "From documentation and application to visa approval and pre-departure support, our expert team ensures a smooth and successful process.";
 
   // text
  static const String onboardingSkipText = "Skip";

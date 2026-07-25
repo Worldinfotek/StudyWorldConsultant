@@ -29,7 +29,7 @@ class OnboardingCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 20.sp,
               fontWeight: FontWeight.w600,
-              color: AppColors.textPrimary,
+              color: AppColors.onboardingTitle,
             ),
           ),
           SizedBox(height: 1.5.h),
@@ -38,7 +38,7 @@ class OnboardingCard extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16.sp,
-              color: AppColors.textSecondary,
+              color: AppColors.onboardingDescription,
               height: 1.5,
             ),
           ),
