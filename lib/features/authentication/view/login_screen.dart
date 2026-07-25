@@ -80,7 +80,10 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 1.h),
               TextField(
                 controller: _usernameController,
-                style: TextStyle(fontSize: 15.sp, color: AppColors.loginLabelText),
+                style: TextStyle(
+                  fontSize: 15.sp,
+                  color: AppColors.loginLabelText,
+                ),
                 decoration: InputDecoration(
                   hintText: AppConstant.usernameHint,
                   hintStyle: TextStyle(
@@ -119,7 +122,10 @@ class _LoginScreenState extends State<LoginScreen> {
               TextField(
                 controller: _passwordController,
                 obscureText: _obscurePassword,
-                style: TextStyle(fontSize: 14.sp, color: AppColors.loginLabelText),
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: AppColors.loginLabelText,
+                ),
                 decoration: InputDecoration(
                   hintText: AppConstant.passwordHint,
                   hintStyle: TextStyle(

@@ -39,6 +39,8 @@ dependencies:
   flutter_bloc: ^9.1.1
   responsive_sizer: ^3.3.1
   curved_navigation_bar: ^1.0.6
+  flutter_staggered_animations: ^1.1.1
+  visibility_detector: ^0.4.0+2
 
 
 dev_dependencies:

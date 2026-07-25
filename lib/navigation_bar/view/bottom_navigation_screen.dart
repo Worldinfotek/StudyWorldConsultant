@@ -1,3 +1,4 @@
+import 'package:OWILC/features/home/view/home_screen.dart';
 import 'package:OWILC/navigation_bar/bloc/bottom_navigation_bloc.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ class BottomNavigationScreen extends StatelessWidget {
   const BottomNavigationScreen({super.key});
 
   static const List<Widget> _screens = [
-    _PlaceholderScreen(label: 'My Menu'),
+    HomeScreen(),
     _PlaceholderScreen(label: 'Account'),
     _PlaceholderScreen(label: 'Reports'),
     _PlaceholderScreen(label: 'Administrator'),
