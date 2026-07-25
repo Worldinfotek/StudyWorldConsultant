@@ -38,6 +38,7 @@ dependencies:
   # bloC state management
   flutter_bloc: ^9.1.1
   responsive_sizer: ^3.3.1
+  curved_navigation_bar: ^1.0.6
 
 
 dev_dependencies:

@@ -1,4 +1,5 @@
 import 'package:OWILC/core/app_popups/app_popups.dart';
+import 'package:OWILC/core/routes/spp_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -169,7 +170,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   onPressed: () {
-                    AppPopups.success(context, message: "In Development");
+                    AppPopups.success(
+                      context,
+                      message: "In Development",
+                      onOkPressed: () {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          AppRoutes.bottomNavigationScreen,
+                        );
+                      },
+                    );
                   },
                   child: Text(
                     AppConstant.loginButtonText,
