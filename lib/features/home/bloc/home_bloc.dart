@@ -1,3 +1,4 @@
+import 'package:OWILC/core/routes/spp_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,81 +21,116 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     // TODO: Replace this dummy list with an actual API call later.
     final dummyCards = <HomeCardModel>[
-
       const HomeCardModel(
-        title: 'Applications',
-        description: 'Track status',
-        icon: Icons.description_outlined,
+        title: 'My Notifications',
+        description: '',
+        icon: Icons.notifications_outlined,
       ),
       const HomeCardModel(
-        title: 'Visa Services',
-        description: 'Explore visa categories',
+        title: 'My Pay Slips',
+        description: '',
+        icon: Icons.receipt_long_outlined,
+      ),
+      const HomeCardModel(
+        title: 'Leave Requests',
+        description: '',
+        icon: Icons.calendar_today_outlined,
+      ),
+      const HomeCardModel(
+        title: 'Approve Leave Requests (HR)',
+        description: '',
+        icon: Icons.fact_check_outlined,
+      ),
+      const HomeCardModel(
+        title: 'Approve Leave Requests (Supervisor)',
+        description: '',
+        icon: Icons.verified_outlined,
+      ),
+      const HomeCardModel(
+        title: 'Manage Tracking Steps',
+        description: '',
+        icon: Icons.track_changes_outlined,
+      ),
+      const HomeCardModel(
+        title: 'Processing Escalations',
+        description: '',
+        icon: Icons.access_time_outlined,
+      ),
+      const HomeCardModel(
+        title: 'Complaints Escalations',
+        description: '',
+        icon: Icons.report_problem_outlined,
+      ),
+      const HomeCardModel(
+        title: 'SMS Log',
+        description: '',
+        icon: Icons.sms_outlined,
+      ),
+      const HomeCardModel(
+        title: 'Visitor Log',
+        description: '',
+        icon: Icons.people_outline,
+      ),
+      HomeCardModel(
+        title: 'My Personal Information',
+        description: '',
+        icon: Icons.description_outlined,
+        routeName: AppRoutes.myPersonalInfoScreen
+      ),
+      const HomeCardModel(
+        title: 'Leads Management',
+        description: '',
         icon: Icons.assignment_outlined,
       ),
       const HomeCardModel(
-        title: 'Study Abroad',
-        description: 'Top universities',
-        icon: Icons.school_outlined,
+        title: 'Processing',
+        description: '',
+        icon: Icons.settings_outlined,
       ),
       const HomeCardModel(
-        title: 'Work Permits',
-        description: 'Employment visas',
-        icon: Icons.work_outline,
+        title: 'Day Book',
+        description: '',
+        icon: Icons.menu_book_outlined,
       ),
       const HomeCardModel(
-        title: 'Immigration',
-        description: 'PR & settlement',
-        icon: Icons.flight_takeoff_outlined,
+        title: 'My Tasks',
+        description: '',
+        icon: Icons.task_alt_outlined,
       ),
       const HomeCardModel(
-        title: 'Consultation',
-        description: 'Book an expert',
-        icon: Icons.support_agent_outlined,
+        title: 'Mission Statement',
+        description: '',
+        icon: Icons.flag_outlined,
       ),
       const HomeCardModel(
-        title: 'Documents',
-        description: 'Track your files',
-        icon: Icons.folder_outlined,
+        title: 'Inactive Users',
+        description: '',
+        icon: Icons.person_off_outlined,
       ),
       const HomeCardModel(
-        title: 'Applications',
-        description: 'Track status',
-        icon: Icons.description_outlined,
+        title: 'Employee Tasks',
+        description: '',
+        icon: Icons.assignment_ind_outlined,
       ),
       const HomeCardModel(
-        title: 'Visa Services',
-        description: 'Explore visa categories',
-        icon: Icons.assignment_outlined,
+        title: 'Customer Payments',
+        description: '',
+        icon: Icons.payments_outlined,
       ),
       const HomeCardModel(
-        title: 'Study Abroad',
-        description: 'Top universities',
-        icon: Icons.school_outlined,
+        title: 'All Installments',
+        description: '',
+        icon: Icons.account_balance_wallet_outlined,
       ),
       const HomeCardModel(
-        title: 'Work Permits',
-        description: 'Employment visas',
-        icon: Icons.work_outline,
+        title: 'Bank Details',
+        description: '',
+        icon: Icons.account_balance_outlined,
       ),
       const HomeCardModel(
-        title: 'Immigration',
-        description: 'PR & settlement',
-        icon: Icons.flight_takeoff_outlined,
-      ),
-      const HomeCardModel(
-        title: 'Consultation',
-        description: 'Book an expert',
-        icon: Icons.support_agent_outlined,
-      ),
-      const HomeCardModel(
-        title: 'Documents',
-        description: 'Track your files',
-        icon: Icons.folder_outlined,
-      ),
-      const HomeCardModel(
-        title: 'Applications',
-        description: 'Track status',
-        icon: Icons.description_outlined,
+        title: 'Staff Attendance',
+        description: '',
+        icon: Icons.access_time_outlined,
       ),
     ];
 

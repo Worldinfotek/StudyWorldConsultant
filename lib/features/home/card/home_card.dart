@@ -18,7 +18,11 @@ class HomeCard extends StatelessWidget {
       onTap:
           onTap ??
           () {
-            AppPopups.warning(context, message: 'In Construction');
+            if (data.routeName != null) {
+              Navigator.of(context).pushNamed(data.routeName!);
+            } else {
+              AppPopups.warning(context, message: 'In Construction');
+            }
           },
       child: Container(
         padding: EdgeInsets.all(3.w),

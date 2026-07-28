@@ -40,4 +40,45 @@ class AppConstant {
   static const String noAccountText = "Don't have an account? ";
   static const String signUpText = 'Sign Up';
 
+
+  ///==========================================================
+  /// My Personal Info Screen
+  ///==========================================================
+  // Personal Information Screen
+  static const String personalInfoTitle = 'My Personal Information';
+
+// Basic Info
+  static const String fullNameLabel = 'Full Name';
+  static const String dobLabel = 'Date Of Birth';
+  static const String phoneNumberLabel = 'Phone Number';
+  static const String emailAddressLabel = 'Email Address';
+  static const String homeAddressLabel = 'Home Address';
+
+// Primary Emergency Contact
+  static const String primaryEmergencySectionTitle = 'Primary Emergency Contact';
+  static const String primaryEmergencyNameLabel = 'Primary Emergency FullName';
+  static const String primaryEmergencyRelationLabel = 'Primary Emergency Relationship';
+  static const String primaryEmergencyPhonePrimaryLabel = 'Primary Emergency Phone Primary';
+  static const String primaryEmergencyPhoneAltLabel = 'Primary Emergency Phone Alternate';
+  static const String primaryEmergencyAddressLabel = 'Primary Emergency Address';
+
+// Secondary Emergency Contact
+  static const String secondaryEmergencySectionTitle = 'Secondary Emergency Contact';
+  static const String secondaryEmergencyNameLabel = 'Secondary Emergency FullName';
+  static const String secondaryEmergencyRelationLabel = 'Secondary Emergency Relationship';
+  static const String secondaryEmergencyPhonePrimaryLabel = 'Secondary Emergency Phone Primary';
+  static const String secondaryEmergencyPhoneAltLabel = 'Secondary Emergency Phone Alternate';
+  static const String secondaryEmergencyAddressLabel = 'Secondary Emergency Address';
+
+// Medical Information
+  static const String medicalInfoSectionTitle = 'Medical Information (Optional)';
+  static const String bloodGroupLabel = 'Blood Group';
+  static const String allergiesLabel = 'Allergies';
+  static const String medicalConditionsLabel = 'Medical Conditions';
+
+// Buttons
+  static const String saveText = 'Save';
+  static const String cancelText = 'Cancel';
+  static const String infoSavedMessage = 'Information saved successfully!';
+
 }
