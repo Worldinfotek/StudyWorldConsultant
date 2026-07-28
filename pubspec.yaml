@@ -41,6 +41,7 @@ dependencies:
   curved_navigation_bar: ^1.0.6
   flutter_staggered_animations: ^1.1.1
   visibility_detector: ^0.4.0+2
+  lottie: ^3.5.1
 
 
 dev_dependencies:
@@ -77,6 +78,8 @@ flutter:
   assets:
     - assets/splash_logo/
     - assets/onboarding_logo/
+    - assets/popups/
+    - assets/bottom_nav/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

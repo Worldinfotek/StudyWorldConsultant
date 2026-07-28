@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../core/colors/app_colors.dart';
@@ -20,7 +21,7 @@ class OnboardingCard extends StatelessWidget {
             height: 40.h,
             width: double.infinity,
             alignment: Alignment.center,
-            child: Image.asset(data.imagePath, fit: BoxFit.contain),
+            child: Lottie.asset(data.imagePath),
           ),
           SizedBox(height: 3.h),
           Text(

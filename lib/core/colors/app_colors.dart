@@ -46,6 +46,7 @@ class AppColors {
   // BOTTOM NAVIGATION BAR
   // ==========================================================
   static const Color bottomNavBackground = _maroon;
+  static const Color bottomNavBackgroundLight = _maroonLight;
   static const Color bottomNavIcon = _onAccent;
 
   // ==========================================================

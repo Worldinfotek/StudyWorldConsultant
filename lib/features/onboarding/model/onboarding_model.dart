@@ -25,16 +25,16 @@ final List<OnboardingModel> onboardingPages = [
   OnboardingModel(
     title: AppConstant.page1Title,
     description: AppConstant.page1Description,
-    imagePath: "assets/onboarding_logo/logo1.png",
+    imagePath: "assets/onboarding_logo/logo1.lottie",
   ),
   OnboardingModel(
     title: AppConstant.page2Title,
     description: AppConstant.page2Description,
-    imagePath: "assets/onboarding_logo/logo2.png"
+    imagePath: "assets/onboarding_logo/logo2.lottie"
   ),
   OnboardingModel(
     title: AppConstant.page3Title,
     description: AppConstant.page3Description,
-    imagePath: "assets/onboarding_logo/logo3.png",
+    imagePath: "assets/onboarding_logo/logo3.lottie",
   ),
 ];

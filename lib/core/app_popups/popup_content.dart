@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../colors/app_colors.dart';
@@ -8,7 +9,7 @@ import '../colors/app_colors.dart';
 class PopupContent extends StatefulWidget {
   final String title;
   final String message;
-  final IconData icon;
+  final String lottiePath;
   final Color accentColor;
   final VoidCallback? onOkPressed;
 
@@ -16,7 +17,7 @@ class PopupContent extends StatefulWidget {
     super.key,
     required this.title,
     required this.message,
-    required this.icon,
+    required this.lottiePath,
     required this.accentColor,
     this.onOkPressed,
   });
@@ -108,17 +109,13 @@ class _PopupContentState extends State<PopupContent>
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Container(
-                    width: 16.w,
-                    height: 16.w,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: widget.accentColor.withOpacity(0.12),
-                    ),
-                    child: Icon(
-                      widget.icon,
-                      color: widget.accentColor,
-                      size: 9.w,
+                  SizedBox(
+                    width: 22.w,
+                    height: 22.w,
+                    child: Lottie.asset(
+                      widget.lottiePath,
+                      repeat: false,
+                      fit: BoxFit.contain,
                     ),
                   ),
                   SizedBox(height: 2.5.h),
