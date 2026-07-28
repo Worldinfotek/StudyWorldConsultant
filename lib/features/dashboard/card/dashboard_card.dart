@@ -1,23 +1,22 @@
 import 'package:OWILC/core/app_popups/app_popups.dart';
+import 'package:OWILC/features/dashboard/model/dashboard_model.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../../../core/colors/app_colors.dart';
-import '../model/home_model.dart';
 
-class HomeCard extends StatelessWidget {
-  final HomeCardModel data;
+class DashboardCard extends StatelessWidget {
+  final DashboardCardModel data;
   final VoidCallback? onTap;
 
-  const HomeCard({super.key, required this.data, this.onTap});
+  const DashboardCard({super.key, required this.data, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(16),
       onTap:
-          onTap ??
-          () {
+      onTap ??
+              () {
             AppPopups.warning(context, message: 'In Construction');
           },
       child: Container(
