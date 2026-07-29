@@ -28,10 +28,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         routeName: AppRoutes.myPersonalInfoScreen,
       ),
 
-      const HomeCardModel(
+       HomeCardModel(
         title: 'Leads Management',
         description: '',
         icon: Icons.assignment_outlined,
+        routeName: AppRoutes.leadsManagement
       ),
 
       const HomeCardModel(
