@@ -7,6 +7,15 @@ import '../../../../core/colors/app_colors.dart';
 import '../bloc/leads_bloc.dart';
 import '../bottom_sheet/leads_filter_bottom_sheet.dart';
 import '../card/lead_state_card.dart';
+import '../dialogs/Installments/view/installment_screen.dart';
+import '../dialogs/KYC/kyc_form_Dialog.dart';
+import '../dialogs/change_ownership_dialog.dart';
+import '../dialogs/contract_amount_dialog.dart';
+import '../dialogs/delete_dialog.dart';
+import '../dialogs/generate_contract_dialog.dart';
+import '../dialogs/refer_t0_dsu_dialog.dart';
+import '../dialogs/share_to_manager_dialog.dart';
+import '../dialogs/share_to_operation_dialog.dart';
 import '../dialogs/share_to_processing_dialog.dart';
 import '../tile/lead_list_tile.dart';
 
@@ -147,29 +156,129 @@ class _LeadsView extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          _bulkActionChip('Change Ownership'),
-                          _bulkActionChip('Delete'),
-                          _bulkActionChip('Edit'),
-                          _bulkActionChip('Refer To DSU'),
-                          _bulkActionChip('Share To Processing', () {
+                          _bulkActionChip('Change Ownership', () {
+                            showDialog(
+                              context: context,
+                              builder: (_) => ChangeOwnershipDialog(
+                                selectedLeadsCount:
+                                    state.selectedIndexes.length,
+                              ),
+                            );
+                          }),
 
+                          _bulkActionChip('Delete', () {
+                            final entries = state.selectedIndexes
+                                .map(
+                                  (index) =>
+                                      '${state.leads[index].name} (${state.leads[index].contactNumber})',
+                                )
+                                .toList();
+
+                            showDialog(
+                              context: context,
+                              builder: (_) => DeleteConfirmationDialog(
+                                entries: entries,
+                                onConfirm: () {
+                                  // TODO: dispatch delete event to LeadsBloc / call API
+                                },
+                              ),
+                            );
+                          }),
+
+                          _bulkActionChip('Edit'),
+
+                          _bulkActionChip('Refer To DSU', () {
+                            showDialog(
+                              context: context,
+                              builder: (_) => const AssignToDsuDialog(),
+                            );
+                          }),
+
+                          _bulkActionChip('Share To Processing', () {
                             final selectedNames = state.selectedIndexes
                                 .map((index) => state.leads[index].name)
                                 .toList();
 
                             showDialog(
                               context: context,
-                              builder: (_) => ShareToProcessingDialog(selectedLeadNames: selectedNames),
+                              builder: (_) => ShareToProcessingDialog(
+                                selectedLeadNames: selectedNames,
+                              ),
                             );
-
                           }),
-                          _bulkActionChip('Share To Operations'),
-                          _bulkActionChip('Share To Branch Manager'),
+
+                          _bulkActionChip('Share To Operations', () {
+                            final selectedNames = state.selectedIndexes
+                                .map((index) => state.leads[index].name)
+                                .toList();
+
+                            showDialog(
+                              context: context,
+                              builder: (_) => ShareToOperationDialog(
+                                selectedLeadNames: selectedNames,
+                              ),
+                            );
+                          }),
+
+                          _bulkActionChip('Share To Branch Manager', () {
+                            final selectedNames = state.selectedIndexes
+                                .map((index) => state.leads[index].name)
+                                .toList();
+
+                            showDialog(
+                              context: context,
+                              builder: (_) => ShareToBranchManagerDialog(
+                                selectedLeadNames: selectedNames,
+                              ),
+                            );
+                          }),
+
                           _bulkActionChip('Download File'),
-                          _bulkActionChip('KYC Form'),
-                          _bulkActionChip('Contract Amount'),
-                          _bulkActionChip('Generate Contract'),
-                          _bulkActionChip('Installments'),
+                          _bulkActionChip('KYC Form', () {
+                            showDialog(
+                              context: context,
+                              builder: (_) => const KycFormDialog(),
+                            );
+                          }),
+
+                          _bulkActionChip('Contract Amount', () {
+                            showDialog(
+                              context: context,
+                              builder: (_) => const ContractAmountDialog(),
+                            );
+                          }),
+                          _bulkActionChip('Generate Contract', () {
+                            final firstSelected =
+                                state.leads[state.selectedIndexes.first];
+
+                            showDialog(
+                              context: context,
+                              builder: (_) => GenerateContractDialog(
+                                clientName: firstSelected.name,
+                                cnic: '',
+                                // TODO: LeadModel me cnic field add karna hoga agar chahiye
+                                city: firstSelected.city,
+                              ),
+                            );
+                          }),
+                          _bulkActionChip('Installments', () {
+                            final firstSelected =
+                                state.leads[state.selectedIndexes.first];
+
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => InstallmentsScreen(
+                                  customerNumber: firstSelected.contactNumber,
+                                  programTitle: firstSelected.programCategory,
+                                  clientName: firstSelected.name,
+                                  city: firstSelected.city,
+                                  contractAmount: '100,000',
+                                  // TODO: pull actual contract amount
+                                  currency: 'PKR',
+                                ),
+                              ),
+                            );
+                          }),
                           _bulkActionChip('Upload'),
                           _bulkActionChip('Customer Tracking'),
                         ],
