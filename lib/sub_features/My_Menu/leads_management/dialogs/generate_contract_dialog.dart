@@ -72,6 +72,7 @@ class _GenerateContractDialogState extends State<GenerateContractDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: AppColors.leadDialogBackground,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       insetPadding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 4.h),
       child: Padding(
@@ -165,7 +166,7 @@ class _GenerateContractDialogState extends State<GenerateContractDialog> {
                       activeColor: AppColors.bottomNavBackground,
                       title: Text(
                         'Have Special Terms',
-                        style: TextStyle(fontSize: 12.5.sp),
+                        style: TextStyle(fontSize: 15.sp),
                       ),
                     ),
                   ],
@@ -179,7 +180,7 @@ class _GenerateContractDialogState extends State<GenerateContractDialog> {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
+                  backgroundColor: AppColors.loginButton,
                   padding: EdgeInsets.symmetric(vertical: 1.6.h),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
@@ -191,7 +192,7 @@ class _GenerateContractDialogState extends State<GenerateContractDialog> {
                   'Save & Generate Sample',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 13.sp,
+                    fontSize: 15.sp,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

@@ -9,6 +9,7 @@ class KycFormDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: AppColors.leadDialogBackground,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       insetPadding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 4.h),
       child: Padding(
@@ -24,7 +25,7 @@ class KycFormDialog extends StatelessWidget {
                   child: Text(
                     'KYC Form',
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
                       color: AppColors.onboardingTitle,
                     ),
@@ -75,25 +76,28 @@ class KycFormDialog extends StatelessWidget {
 
             SizedBox(height: 2.h),
 
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  padding: EdgeInsets.symmetric(vertical: 1.6.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: SizedBox(
+                width: 35.w,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.redAccent,
+                    padding: EdgeInsets.symmetric(vertical: 1.6.h),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
-                ),
-                onPressed: () {
-                  // TODO: Wire up Print KYC action
-                },
-                child: Text(
-                  'Print Kyc',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w600,
+                  onPressed: () {
+                    // TODO: Wire up Print KYC action
+                  },
+                  child: Text(
+                    'Print Kyc',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ),
@@ -106,13 +110,13 @@ class KycFormDialog extends StatelessWidget {
 
   Widget _kycButton(BuildContext context, String label, VoidCallback onTap) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 1.2.h),
+      padding: EdgeInsets.only(bottom: 0.5.h),
       child: SizedBox(
         width: double.infinity,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.bottomNavBackground,
-            padding: EdgeInsets.symmetric(vertical: 1.6.h),
+            padding: EdgeInsets.symmetric(vertical: 2.h),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
@@ -123,7 +127,7 @@ class KycFormDialog extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 15.sp,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600,
             ),
           ),

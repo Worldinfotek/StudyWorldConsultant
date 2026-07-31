@@ -56,6 +56,7 @@ class _NewInstallmentDialogState extends State<NewInstallmentDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: AppColors.leadDialogBackground,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       insetPadding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 4.h),
       child: Padding(
@@ -73,7 +74,7 @@ class _NewInstallmentDialogState extends State<NewInstallmentDialog> {
                     child: Text(
                       'New Installment',
                       style: TextStyle(
-                        fontSize: 15.sp,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w700,
                         color: AppColors.onboardingTitle,
                       ),
@@ -177,14 +178,14 @@ class _NewInstallmentDialogState extends State<NewInstallmentDialog> {
                       'Cancel',
                       style: TextStyle(
                         color: AppColors.onboardingTitle,
-                        fontSize: 13.sp,
+                        fontSize: 15.sp,
                       ),
                     ),
                   ),
                   SizedBox(width: 2.w),
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.lightBlue,
+                      backgroundColor: AppColors.loginButton,
                       padding: EdgeInsets.symmetric(
                         horizontal: 5.w,
                         vertical: 1.6.h,
@@ -203,7 +204,7 @@ class _NewInstallmentDialogState extends State<NewInstallmentDialog> {
                       'Save',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 13.sp,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

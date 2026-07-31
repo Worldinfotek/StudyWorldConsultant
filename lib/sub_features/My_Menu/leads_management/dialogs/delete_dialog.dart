@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../core/colors/app_colors.dart';
-
 
 class DeleteConfirmationDialog extends StatelessWidget {
   final List<String> entries; // e.g. "Test lead (03001234567)"
@@ -17,6 +17,7 @@ class DeleteConfirmationDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: AppColors.leadDialogBackground,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       insetPadding: EdgeInsets.symmetric(horizontal: 8.w),
       child: Padding(
@@ -24,22 +25,23 @@ class DeleteConfirmationDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              width: 16.w,
-              height: 16.w,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.orange, width: 2.5),
+            SizedBox(
+              width: 22.w,
+              height: 22.w,
+              child: Lottie.asset(
+                'assets/popups/warning.lottie',
+                repeat: false,
+                fit: BoxFit.contain,
               ),
-              child: Icon(Icons.priority_high, color: Colors.orange, size: 9.w),
             ),
+
             SizedBox(height: 2.5.h),
 
             Text(
               'Are you sure?',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 18.sp,
+                fontSize: 20.sp,
                 fontWeight: FontWeight.w700,
                 color: AppColors.onboardingTitle,
               ),
@@ -50,18 +52,19 @@ class DeleteConfirmationDialog extends StatelessWidget {
               'Delete the following entries:',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 12.5.sp,
+                fontSize: 16.sp,
                 color: AppColors.onboardingDescription,
               ),
             ),
             SizedBox(height: 0.5.h),
             ...entries.map(
-                  (entry) => Text(
+              (entry) => Text(
                 entry,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 12.5.sp,
+                  fontSize: 15.sp,
                   color: AppColors.onboardingDescription,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
@@ -77,14 +80,16 @@ class DeleteConfirmationDialog extends StatelessWidget {
                       backgroundColor: Colors.grey.shade200,
                       side: BorderSide.none,
                       padding: EdgeInsets.symmetric(vertical: 1.6.h),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                     onPressed: () => Navigator.of(context).pop(),
                     child: Text(
                       'Cancel',
                       style: TextStyle(
                         color: AppColors.onboardingTitle,
-                        fontSize: 13.sp,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -94,9 +99,11 @@ class DeleteConfirmationDialog extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.lightBlue,
+                      backgroundColor: AppColors.loginButton,
                       padding: EdgeInsets.symmetric(vertical: 1.6.h),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                     onPressed: () {
                       Navigator.of(context).pop();
@@ -106,7 +113,7 @@ class DeleteConfirmationDialog extends StatelessWidget {
                       'Yes',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 13.sp,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

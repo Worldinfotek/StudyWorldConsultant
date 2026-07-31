@@ -3,7 +3,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../core/colors/app_colors.dart';
 
-
 class LeadsFilterBottomSheet extends StatelessWidget {
   const LeadsFilterBottomSheet({super.key});
 
@@ -52,21 +51,54 @@ class LeadsFilterBottomSheet extends StatelessWidget {
                     SizedBox(height: 2.h),
                     _dateField(context, 'End Date'),
                     SizedBox(height: 2.h),
-                    _dropdownField('Select Employee', ['developer', 'sales-1', 'sales-2']),
+                    _dropdownField('Select Employee', [
+                      'developer',
+                      'sales-1',
+                      'sales-2',
+                    ]),
                     SizedBox(height: 2.h),
-                    _dropdownField('Select Lead Status', ['New', 'Contacted', 'Follow Up', 'Closed']),
+                    _dropdownField('Select Lead Status', [
+                      'New',
+                      'Contacted',
+                      'Follow Up',
+                      'Closed',
+                    ]),
                     SizedBox(height: 2.h),
-                    _dropdownField('Select Country', ['Pakistan', 'UK', 'Canada', 'USA']),
+                    _dropdownField('Select Country', [
+                      'Pakistan',
+                      'UK',
+                      'Canada',
+                      'USA',
+                    ]),
                     SizedBox(height: 2.h),
-                    _dropdownField('Select Program', ['Ph.D. Program', 'Masters', 'Bachelors']),
+                    _dropdownField('Select Program', [
+                      'Ph.D. Program',
+                      'Masters',
+                      'Bachelors',
+                    ]),
                     SizedBox(height: 2.h),
-                    _dropdownField('Select Category', ['Category 1', 'Category 2']),
+                    _dropdownField('Select Category', [
+                      'Category 1',
+                      'Category 2',
+                    ]),
                     SizedBox(height: 2.h),
-                    _dropdownField('Select Lead Source', ['Facebook', 'Website', 'Referral']),
+                    _dropdownField('Select Lead Source', [
+                      'Facebook',
+                      'Website',
+                      'Referral',
+                    ]),
                     SizedBox(height: 2.h),
-                    _dropdownField('Select Department', ['Sales', 'Processing', 'Operations']),
+                    _dropdownField('Select Department', [
+                      'Sales',
+                      'Processing',
+                      'Operations',
+                    ]),
                     SizedBox(height: 2.h),
-                    _dropdownField('Select Assigned', ['Unassigned', 'Team A', 'Team B']),
+                    _dropdownField('Select Assigned', [
+                      'Unassigned',
+                      'Team A',
+                      'Team B',
+                    ]),
                     SizedBox(height: 1.h),
                     CheckboxListTile(
                       value: false,
@@ -97,8 +129,12 @@ class LeadsFilterBottomSheet extends StatelessWidget {
                       },
                       style: OutlinedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 1.6.h),
-                        side: BorderSide(color: AppColors.onboardingDescription),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        side: BorderSide(
+                          color: AppColors.onboardingDescription,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                       child: const Text('Reset'),
                     ),
@@ -113,9 +149,14 @@ class LeadsFilterBottomSheet extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.bottomNavBackground,
                         padding: EdgeInsets.symmetric(vertical: 1.6.h),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
-                      child: const Text('Filter', style: TextStyle(color: Colors.white)),
+                      child: const Text(
+                        'Filter',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
@@ -154,7 +195,12 @@ class LeadsFilterBottomSheet extends StatelessWidget {
   Widget _dropdownField(String label, List<String> options) {
     return DropdownButtonFormField<String>(
       items: options
-          .map((e) => DropdownMenuItem(value: e, child: Text(e, style: const TextStyle(fontSize: 13))))
+          .map(
+            (e) => DropdownMenuItem(
+              value: e,
+              child: Text(e, style: const TextStyle(fontSize: 13)),
+            ),
+          )
           .toList(),
       onChanged: (_) {},
       decoration: InputDecoration(

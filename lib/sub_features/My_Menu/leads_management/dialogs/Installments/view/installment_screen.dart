@@ -331,6 +331,7 @@ class _InstallmentCard extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: PopupMenuButton<String>(
+              color: AppColors.leadDialogBackground,
               offset: const Offset(0, 40),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -423,11 +424,11 @@ PopupMenuItem<String> _menuItem(String value, IconData icon, String label) {
     value: value,
     child: Row(
       children: [
-        Icon(icon, size: 18, color: AppColors.onboardingDescription),
+        Icon(icon, size: 20, color: AppColors.onboardingDescription),
         SizedBox(width: 2.5.w),
         Text(
           label,
-          style: TextStyle(fontSize: 12.5.sp, color: AppColors.onboardingTitle),
+          style: TextStyle(fontSize: 15.sp, color: AppColors.onboardingTitle),
         ),
       ],
     ),

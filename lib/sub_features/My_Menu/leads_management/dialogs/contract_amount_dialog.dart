@@ -5,7 +5,6 @@ import '../../../../core/colors/app_colors.dart';
 import '../../my_personal_information/widgets/my_personal_info_text_field.dart';
 import '../dropdown/custom_dropdown.dart';
 
-
 class ContractAmountDialog extends StatefulWidget {
   const ContractAmountDialog({super.key});
 
@@ -26,6 +25,7 @@ class _ContractAmountDialogState extends State<ContractAmountDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: AppColors.leadDialogBackground,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       insetPadding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 4.h),
       child: Padding(
@@ -41,7 +41,7 @@ class _ContractAmountDialogState extends State<ContractAmountDialog> {
                   child: Text(
                     'Installment Fields',
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
                       color: AppColors.onboardingTitle,
                     ),
@@ -78,9 +78,14 @@ class _ContractAmountDialogState extends State<ContractAmountDialog> {
               alignment: Alignment.centerRight,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 1.6.h),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  backgroundColor: AppColors.loginButton,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 6.w,
+                    vertical: 1.6.h,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
                 onPressed: () {
                   // TODO: Wire up to API / Bloc event.
@@ -90,7 +95,7 @@ class _ContractAmountDialogState extends State<ContractAmountDialog> {
                   'Save',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 13.sp,
+                    fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

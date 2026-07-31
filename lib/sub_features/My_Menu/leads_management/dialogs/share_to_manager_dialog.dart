@@ -3,17 +3,21 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../core/colors/app_colors.dart';
 
-
 class ShareToBranchManagerDialog extends StatefulWidget {
   final List<String> selectedLeadNames;
 
-  const ShareToBranchManagerDialog({super.key, required this.selectedLeadNames});
+  const ShareToBranchManagerDialog({
+    super.key,
+    required this.selectedLeadNames,
+  });
 
   @override
-  State<ShareToBranchManagerDialog> createState() => _ShareToBranchManagerDialogState();
+  State<ShareToBranchManagerDialog> createState() =>
+      _ShareToBranchManagerDialogState();
 }
 
-class _ShareToBranchManagerDialogState extends State<ShareToBranchManagerDialog> {
+class _ShareToBranchManagerDialogState
+    extends State<ShareToBranchManagerDialog> {
   bool _shareToBranchManager = false;
 
   @override
@@ -21,6 +25,7 @@ class _ShareToBranchManagerDialogState extends State<ShareToBranchManagerDialog>
     final count = widget.selectedLeadNames.length;
 
     return Dialog(
+      backgroundColor: AppColors.leadDialogBackground,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       insetPadding: EdgeInsets.symmetric(horizontal: 5.w),
       child: Padding(
@@ -36,7 +41,7 @@ class _ShareToBranchManagerDialogState extends State<ShareToBranchManagerDialog>
                   child: Text(
                     'Share To Branch Manager',
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
                       color: AppColors.onboardingTitle,
                     ),
@@ -55,7 +60,7 @@ class _ShareToBranchManagerDialogState extends State<ShareToBranchManagerDialog>
             Text(
               '$count leads selected',
               style: TextStyle(
-                fontSize: 12.sp,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w600,
                 color: Colors.green,
               ),
@@ -64,13 +69,14 @@ class _ShareToBranchManagerDialogState extends State<ShareToBranchManagerDialog>
 
             CheckboxListTile(
               value: _shareToBranchManager,
-              onChanged: (val) => setState(() => _shareToBranchManager = val ?? false),
+              onChanged: (val) =>
+                  setState(() => _shareToBranchManager = val ?? false),
               contentPadding: EdgeInsets.zero,
               controlAffinity: ListTileControlAffinity.leading,
               activeColor: AppColors.bottomNavBackground,
               title: Text(
                 'Share Selected Leads to Branch Manager',
-                style: TextStyle(fontSize: 12.5.sp),
+                style: TextStyle(fontSize: 15.sp),
               ),
             ),
             SizedBox(height: 1.5.h),
@@ -78,19 +84,19 @@ class _ShareToBranchManagerDialogState extends State<ShareToBranchManagerDialog>
             Text(
               'Not Share ($count):',
               style: TextStyle(
-                fontSize: 13.sp,
+                fontSize: 15.sp,
                 fontWeight: FontWeight.w700,
                 color: AppColors.onboardingTitle,
               ),
             ),
             SizedBox(height: 0.6.h),
             ...widget.selectedLeadNames.map(
-                  (name) => Padding(
+              (name) => Padding(
                 padding: EdgeInsets.only(bottom: 0.3.h),
                 child: Text(
                   name,
                   style: TextStyle(
-                    fontSize: 12.sp,
+                    fontSize: 15.sp,
                     color: AppColors.onboardingDescription,
                   ),
                 ),
@@ -105,19 +111,26 @@ class _ShareToBranchManagerDialogState extends State<ShareToBranchManagerDialog>
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     side: BorderSide(color: AppColors.onboardingDescription),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
                   onPressed: () => Navigator.of(context).pop(),
                   child: Text(
                     'Close',
-                    style: TextStyle(color: AppColors.onboardingDescription, fontSize: 12.sp),
+                    style: TextStyle(
+                      color: AppColors.onboardingDescription,
+                      fontSize: 15.sp,
+                    ),
                   ),
                 ),
                 SizedBox(width: 2.w),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.bottomNavBackground,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
                   onPressed: () {
                     // TODO: Wire up to API / Bloc event.
@@ -125,7 +138,7 @@ class _ShareToBranchManagerDialogState extends State<ShareToBranchManagerDialog>
                   },
                   child: Text(
                     'Save Changes',
-                    style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                    style: TextStyle(color: Colors.white, fontSize: 15.sp),
                   ),
                 ),
               ],

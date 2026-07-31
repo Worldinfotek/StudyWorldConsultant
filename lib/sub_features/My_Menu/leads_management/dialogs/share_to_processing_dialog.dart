@@ -21,6 +21,7 @@ class _ShareToProcessingDialogState extends State<ShareToProcessingDialog> {
     final count = widget.selectedLeadNames.length;
 
     return Dialog(
+      backgroundColor: AppColors.leadDialogBackground,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       insetPadding: EdgeInsets.symmetric(horizontal: 5.w),
       child: Padding(

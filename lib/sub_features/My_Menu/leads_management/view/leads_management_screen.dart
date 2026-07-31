@@ -11,6 +11,7 @@ import '../dialogs/Installments/view/installment_screen.dart';
 import '../dialogs/KYC/kyc_form_Dialog.dart';
 import '../dialogs/change_ownership_dialog.dart';
 import '../dialogs/contract_amount_dialog.dart';
+import '../dialogs/customer_tracking/view/customer_tracking_screen.dart';
 import '../dialogs/delete_dialog.dart';
 import '../dialogs/generate_contract_dialog.dart';
 import '../dialogs/refer_t0_dsu_dialog.dart';
@@ -18,6 +19,7 @@ import '../dialogs/share_to_manager_dialog.dart';
 import '../dialogs/share_to_operation_dialog.dart';
 import '../dialogs/share_to_processing_dialog.dart';
 import '../tile/lead_list_tile.dart';
+import 'add_lead_screen.dart';
 
 class LeadsManagementScreen extends StatelessWidget {
   const LeadsManagementScreen({super.key});
@@ -185,7 +187,14 @@ class _LeadsView extends StatelessWidget {
                             );
                           }),
 
-                          _bulkActionChip('Edit'),
+                          _bulkActionChip('Edit', () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    const AddLeadScreen(isEdit: true),
+                              ),
+                            );
+                          }),
 
                           _bulkActionChip('Refer To DSU', () {
                             showDialog(
@@ -280,7 +289,18 @@ class _LeadsView extends StatelessWidget {
                             );
                           }),
                           _bulkActionChip('Upload'),
-                          _bulkActionChip('Customer Tracking'),
+                          _bulkActionChip('Customer Tracking', () {
+                            final selectedLead =
+                                state.leads[state.selectedIndexes.first];
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => CustomerTrackingScreen(
+                                  leadName: selectedLead.name,
+                                  contactNumber: selectedLead.contactNumber,
+                                ),
+                              ),
+                            );
+                          }),
                         ],
                       ),
                     ),

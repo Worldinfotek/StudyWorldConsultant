@@ -4,7 +4,6 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../../core/colors/app_colors.dart';
 import '../dropdown/custom_dropdown.dart';
 
-
 class AssignToDsuDialog extends StatefulWidget {
   final String assignedTo;
 
@@ -21,6 +20,7 @@ class _AssignToDsuDialogState extends State<AssignToDsuDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: AppColors.leadDialogBackground,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       insetPadding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 4.h),
       child: Padding(
@@ -36,8 +36,8 @@ class _AssignToDsuDialogState extends State<AssignToDsuDialog> {
                   child: Text(
                     'Assign To DSU',
                     style: TextStyle(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold,
                       color: AppColors.onboardingTitle,
                     ),
                   ),
@@ -55,7 +55,7 @@ class _AssignToDsuDialogState extends State<AssignToDsuDialog> {
             Text(
               'Assign',
               style: TextStyle(
-                fontSize: 13.sp,
+                fontSize: 15.sp,
                 fontWeight: FontWeight.w700,
                 color: AppColors.onboardingTitle,
               ),
@@ -86,7 +86,7 @@ class _AssignToDsuDialogState extends State<AssignToDsuDialog> {
                     RichText(
                       text: TextSpan(
                         style: TextStyle(
-                          fontSize: 12.sp,
+                          fontSize: 14.sp,
                           color: AppColors.onboardingDescription,
                         ),
                         children: [
@@ -111,19 +111,26 @@ class _AssignToDsuDialogState extends State<AssignToDsuDialog> {
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     side: BorderSide(color: AppColors.onboardingDescription),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
                   onPressed: () => Navigator.of(context).pop(),
                   child: Text(
                     'Close',
-                    style: TextStyle(color: AppColors.onboardingDescription, fontSize: 12.sp),
+                    style: TextStyle(
+                      color: AppColors.onboardingDescription,
+                      fontSize: 15.sp,
+                    ),
                   ),
                 ),
                 SizedBox(width: 2.w),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.bottomNavBackground,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                   ),
                   onPressed: () {
                     // TODO: Wire up to API / Bloc event.
@@ -131,7 +138,7 @@ class _AssignToDsuDialogState extends State<AssignToDsuDialog> {
                   },
                   child: Text(
                     'Assign',
-                    style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                    style: TextStyle(color: Colors.white, fontSize: 15.sp),
                   ),
                 ),
               ],

@@ -7,7 +7,9 @@ import '../../my_personal_information/widgets/my_personal_info_text_field.dart';
 import '../dropdown/custom_dropdown.dart';
 
 class AddLeadScreen extends StatefulWidget {
-  const AddLeadScreen({super.key});
+  final bool isEdit;
+
+  const AddLeadScreen({super.key, this.isEdit = false});
 
   @override
   State<AddLeadScreen> createState() => _AddLeadScreenState();
@@ -101,7 +103,9 @@ class _AddLeadScreenState extends State<AddLeadScreen> {
       // TODO: Wire this up to an API call / Bloc event later.
       AppPopups.success(
         context,
-        message: 'Lead saved successfully!',
+        message: widget.isEdit
+            ? 'Lead updated successfully!'
+            : 'Lead saved successfully!',
         onOkPressed: () => Navigator.of(context).pop(),
       );
     }
@@ -113,7 +117,10 @@ class _AddLeadScreenState extends State<AddLeadScreen> {
       backgroundColor: AppColors.onboardingBackground,
       appBar: AppBar(
         backgroundColor: AppColors.bottomNavBackground,
-        title: const Text('New Lead', style: TextStyle(color: Colors.white)),
+        title: Text(
+          widget.isEdit ? 'Edit Lead' : 'New Lead',
+          style: const TextStyle(color: Colors.white),
+        ),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SafeArea(
@@ -415,7 +422,7 @@ class _AddLeadScreenState extends State<AddLeadScreen> {
                         ),
                         onPressed: _onSave,
                         child: Text(
-                          'Save',
+                          widget.isEdit ? 'Update' : 'Save',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 14.sp,

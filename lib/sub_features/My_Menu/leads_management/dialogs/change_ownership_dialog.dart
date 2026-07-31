@@ -26,6 +26,7 @@ class _ChangeOwnershipDialogState extends State<ChangeOwnershipDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: AppColors.leadDialogBackground,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
       insetPadding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 4.h),
       child: Padding(
@@ -41,7 +42,7 @@ class _ChangeOwnershipDialogState extends State<ChangeOwnershipDialog> {
                   child: Text(
                     'Change Ownership',
                     style: TextStyle(
-                      fontSize: 15.sp,
+                      fontSize: 17.sp,
                       fontWeight: FontWeight.w700,
                       color: AppColors.onboardingTitle,
                     ),
@@ -60,7 +61,7 @@ class _ChangeOwnershipDialogState extends State<ChangeOwnershipDialog> {
             Text(
               'Sales Ownership',
               style: TextStyle(
-                fontSize: 13.sp,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w700,
                 color: AppColors.onboardingTitle,
               ),
@@ -75,7 +76,7 @@ class _ChangeOwnershipDialogState extends State<ChangeOwnershipDialog> {
                     Text(
                       '${widget.selectedLeadsCount} leads selected',
                       style: TextStyle(
-                        fontSize: 12.sp,
+                        fontSize: 15.sp,
                         fontWeight: FontWeight.w600,
                         color: Colors.green,
                       ),
@@ -131,7 +132,7 @@ class _ChangeOwnershipDialogState extends State<ChangeOwnershipDialog> {
                       activeColor: AppColors.bottomNavBackground,
                       title: Text(
                         'Reset Create Date to Today',
-                        style: TextStyle(fontSize: 12.sp),
+                        style: TextStyle(fontSize: 15.sp),
                       ),
                     ),
                     CheckboxListTile(
@@ -144,7 +145,7 @@ class _ChangeOwnershipDialogState extends State<ChangeOwnershipDialog> {
                       title: RichText(
                         text: TextSpan(
                           style: TextStyle(
-                            fontSize: 12.sp,
+                            fontSize: 15.sp,
                             color: Colors.black87,
                           ),
                           children: const [
@@ -179,11 +180,11 @@ class _ChangeOwnershipDialogState extends State<ChangeOwnershipDialog> {
                     'Close',
                     style: TextStyle(
                       color: AppColors.onboardingDescription,
-                      fontSize: 12.sp,
+                      fontSize: 15.sp,
                     ),
                   ),
                 ),
-                SizedBox(width: 2.w),
+                SizedBox(width: 1.w),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.bottomNavBackground,
@@ -197,7 +198,7 @@ class _ChangeOwnershipDialogState extends State<ChangeOwnershipDialog> {
                   },
                   child: Text(
                     'Change Ownership',
-                    style: TextStyle(color: Colors.white, fontSize: 12.sp),
+                    style: TextStyle(color: Colors.white, fontSize: 15.sp),
                   ),
                 ),
               ],
