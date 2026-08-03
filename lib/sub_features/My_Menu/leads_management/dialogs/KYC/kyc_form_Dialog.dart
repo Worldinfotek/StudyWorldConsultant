@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../../core/colors/app_colors.dart';
+import 'KYC_dialog/kyc_personal_details_dialog.dart';
+import 'KYC_dialog/screen/kyc_business_detail_screen.dart';
 
 class KycFormDialog extends StatelessWidget {
   const KycFormDialog({super.key});
@@ -46,10 +48,21 @@ class KycFormDialog extends StatelessWidget {
                 child: Column(
                   children: [
                     _kycButton(context, 'Personal Details', () {
-                      // TODO: Navigate to Personal Details KYC screen
+                      Navigator.of(context).pop();
+                      showDialog(
+                        context: context,
+                        builder: (_) => const KycPersonalDetailsDialog(),
+                      );
                     }),
                     _kycButton(context, 'Business Details', () {
-                      // TODO: Navigate to Business Details KYC screen
+                      Navigator.of(context).pop();
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => KycBusinessDetailsScreen(
+                            leadName: 'Test lead',
+                          ), // TODO: pass actual lead name
+                        ),
+                      );
                     }),
                     _kycButton(context, 'Bank Details', () {
                       // TODO: Navigate to Bank Details KYC screen

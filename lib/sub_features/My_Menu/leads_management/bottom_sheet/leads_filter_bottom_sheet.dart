@@ -196,11 +196,12 @@ class LeadsFilterBottomSheet extends StatelessWidget {
     return DropdownButtonFormField<String>(
       items: options
           .map(
-            (e) => DropdownMenuItem(
+            (e) =>
+            DropdownMenuItem(
               value: e,
               child: Text(e, style: const TextStyle(fontSize: 13)),
             ),
-          )
+      )
           .toList(),
       onChanged: (_) {},
       decoration: InputDecoration(
