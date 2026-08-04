@@ -3,6 +3,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../../core/colors/app_colors.dart';
 import 'KYC_dialog/kyc_personal_details_dialog.dart';
+import 'KYC_dialog/screen/kyc_bank_detail_screen.dart';
 import 'KYC_dialog/screen/kyc_business_detail_screen.dart';
 
 class KycFormDialog extends StatelessWidget {
@@ -65,7 +66,14 @@ class KycFormDialog extends StatelessWidget {
                       );
                     }),
                     _kycButton(context, 'Bank Details', () {
-                      // TODO: Navigate to Bank Details KYC screen
+                      Navigator.of(context).pop();
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => KycBankDetailsScreen(
+                            leadName: 'Test lead',
+                          ), // TODO: pass actual lead name
+                        ),
+                      );
                     }),
                     _kycButton(context, 'Travel History Details', () {
                       // TODO: Navigate to Travel History Details KYC screen
