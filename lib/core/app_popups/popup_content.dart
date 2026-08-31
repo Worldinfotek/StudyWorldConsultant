@@ -123,7 +123,7 @@ class _PopupContentState extends State<PopupContent>
                     widget.title,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 17.sp,
+                      fontSize: 19.sp,
                       fontWeight: FontWeight.w700,
                       color: AppColors.popupTitleText,
                     ),
@@ -133,7 +133,7 @@ class _PopupContentState extends State<PopupContent>
                     widget.message,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 13.sp,
+                      fontSize: 17.sp,
                       color: AppColors.popupMessageText,
                       height: 1.5,
                     ),
