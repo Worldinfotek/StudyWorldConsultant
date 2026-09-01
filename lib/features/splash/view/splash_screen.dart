@@ -1,10 +1,10 @@
+import 'package:OWILC/api/auth_token/services/token_storage_service.dart';
 import 'package:OWILC/core/constant/app_constant.dart';
 import 'package:OWILC/core/routes/spp_routes.dart';
+import 'package:OWILC/features/onboarding/services/onboarding_storage_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
-
 import '../../../core/colors/app_colors.dart';
 import '../animation/floating_particles.dart';
 import '../bloc/splash_bloc.dart';
@@ -17,9 +17,29 @@ class SplashScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => SplashBloc()..add(SplashStarted()),
       child: BlocListener<SplashBloc, SplashState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state is SplashCompleted) {
-            Navigator.of(context).pushReplacementNamed(AppRoutes.onBoarding);
+            final seenOnboarding =
+                await OnboardingStorageService.hasSeenOnboading();
+
+            if (!context.mounted) return;
+
+            if (!seenOnboarding) {
+              Navigator.of(context).pushReplacementNamed(AppRoutes.onBoarding);
+              return;
+            }
+
+            final hasToken = await TokenStorageService.hasToken();
+
+            if (!context.mounted) return;
+
+            if (hasToken) {
+              Navigator.of(
+                context,
+              ).pushReplacementNamed(AppRoutes.bottomNavigationScreen);
+            } else {
+              Navigator.of(context).pushReplacementNamed(AppRoutes.login);
+            }
           }
         },
         child: const _SplashView(),
@@ -86,7 +106,6 @@ class _SplashViewState extends State<_SplashView>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       ///===========================================
       ///Body
       ///===========================================
@@ -101,7 +120,6 @@ class _SplashViewState extends State<_SplashView>
         ),
         child: Stack(
           children: [
-
             ///==========================================================
             ///Wind-like floating particles across the whole screen.
             ///==========================================================
@@ -111,7 +129,6 @@ class _SplashViewState extends State<_SplashView>
                 particleColor: AppColors.splashParticle,
               ),
             ),
-
 
             ///========================================================
             /// Center: logo + elegant animated text.
@@ -170,7 +187,6 @@ class _DummyLogo extends StatelessWidget {
     );
   }
 }
-
 
 ///======================================================
 ///Temporary Place Holder

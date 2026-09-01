@@ -1,4 +1,5 @@
 import 'package:OWILC/core/routes/spp_routes.dart';
+import 'package:OWILC/features/onboarding/services/onboarding_storage_service.dart';
 import 'package:OWILC/features/splash/animation/floating_particles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -38,13 +39,15 @@ class _OnboardingViewState extends State<_OnboardingView> {
     super.dispose();
   }
 
-  void _goToNext(BuildContext context, int currentPage) {
+  void _goToNext(BuildContext context, int currentPage) async {
     if (currentPage < onboardingPages.length - 1) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 400),
         curve: Curves.easeInOut,
       );
     } else {
+      await OnboardingStorageService.markOnboardingSeen();
+      if(!context.mounted) return;
       Navigator.of(context).pushReplacementNamed(AppRoutes.login);
     }
   }
@@ -72,7 +75,9 @@ class _OnboardingViewState extends State<_OnboardingView> {
                       child: Padding(
                         padding: EdgeInsets.all(4.w),
                         child: TextButton(
-                          onPressed: () {
+                          onPressed: () async {
+                            await OnboardingStorageService.markOnboardingSeen();
+                            if(!context.mounted) return;
                             Navigator.of(
                               context,
                             ).pushReplacementNamed(AppRoutes.onBoarding);
@@ -81,7 +86,7 @@ class _OnboardingViewState extends State<_OnboardingView> {
                             AppConstant.onboardingSkipText,
                             style: TextStyle(
                               color: AppColors.onboardingSkipText,
-                              fontSize: 13.sp,
+                              fontSize: 15.sp,
                             ),
                           ),
                         ),

@@ -1,3 +1,4 @@
+import 'package:OWILC/api/auth_token/services/token_storage_service.dart';
 import 'package:OWILC/features/authentication/bloc/login_event.dart';
 import 'package:OWILC/features/authentication/bloc/login_state.dart';
 import 'package:OWILC/features/authentication/model/login_request_model.dart';
@@ -31,12 +32,48 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         ),
       );
 
-      /// validation
-      if (response.isSuccess) {
-        emit(LoginSuccess(description: response.description));
-      } else {
+      if(!response.isSuccess){
         emit(LoginFailure(message: "Something wents wrong. Please try again"));
+        return;
       }
-    } catch (exception) {}
+
+      try {
+
+        /// token response
+        final tokenResponse = await authRepository.getToken(
+            username: event.userNameOrEmailAddress,
+            password: event.password
+        );
+
+        /// user payload
+        final userPayload = authRepository.decodeToken(
+            tokenResponse.accessToken
+        );
+
+        /// token + user payload save
+        await TokenStorageService.saveSession(
+            token: tokenResponse.accessToken,
+            user: userPayload
+        );
+
+        emit(LoginSuccess(description: response.description));
+
+
+
+      } catch
+      (token_Exception)
+      {
+          emit(
+              const LoginFailure(
+                  message: "Login succeeded but session could not be created. Please try again.")
+          );
+      }
+    } catch
+    (Exception)
+    {
+          emit(const LoginFailure(
+              message: "Something wents wrong. Please try again")
+          );
+    }
   }
 }
