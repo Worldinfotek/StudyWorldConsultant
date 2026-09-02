@@ -26,15 +26,15 @@ class TokenStorageService {
 
   static Future<UserPayloadModel?> getUserPayload() async {
     final prefs = await SharedPreferences.getInstance();
-    final userJson = prefs .getString(_userDataKey);
-    if(userJson == null) return null;
+    final userJson = prefs.getString(_userDataKey);
+    if (userJson == null) return null;
     return UserPayloadModel.fromJson(jsonDecode(userJson));
   }
 
   static Future<void> saveSession({
     required String token,
     required UserPayloadModel user,
-  })  async {
+  }) async {
     await saveToken(token);
     await savePayload(user);
   }
@@ -49,8 +49,4 @@ class TokenStorageService {
     final token = await getToken();
     return token != null && token.isNotEmpty;
   }
-
-
-
-
 }

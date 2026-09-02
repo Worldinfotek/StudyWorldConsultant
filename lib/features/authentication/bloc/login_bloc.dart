@@ -61,8 +61,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
 
       } catch
-      (token_Exception)
+      (token_Exception, stackTrace)
       {
+        print("TOKEN API ERROR: $token_Exception");
+        print("STACK TRACE: $stackTrace");
           emit(
               const LoginFailure(
                   message: "Login succeeded but session could not be created. Please try again.")

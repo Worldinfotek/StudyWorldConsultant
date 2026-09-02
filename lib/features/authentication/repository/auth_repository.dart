@@ -43,12 +43,15 @@ class AuthRepository {
       },
     );
 
+    print("TOKEN RAW RESPONSE: ${response.body}");
+
     final data = jsonDecode(response.body);
     return TokenResponseModel.fromJson(data);
   }
 
   UserPayloadModel decodeToken(String accessToken) {
     final payload = JwtDecoder.decode(accessToken);
+    print("DECODED PAYLOAD: $payload");
     return UserPayloadModel.fromJson(payload);
   }
 }

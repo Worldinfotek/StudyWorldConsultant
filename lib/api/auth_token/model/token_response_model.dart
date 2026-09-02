@@ -1,6 +1,8 @@
+import 'dart:ffi';
+
 class TokenResponseModel {
   final String accessToken;
-  final String expiresIn;
+  final int expiresIn;
   final String tokenType;
   final String scope;
 
